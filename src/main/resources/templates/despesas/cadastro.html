@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-static-top" ></nav>
-<form class="form-horizontal">
+<form class="form-horizontal" method="post" action="/despesas/salvar">
 	<div class="panel panel-default" >
 		<div class="panel-heading">
             <h1 class="panel-title">Nova despesa</h1>
@@ -17,23 +17,23 @@
     <div class="form-group">
         <label for="descricao" class="col-sm-2 control-label">Descrição</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="descricao">
+            <input type="text" class="form-control" name="descricao">
         </div>  
     </div>
 
     <div class="form-group">
         <label for="categoria" class="col-sm-2 control-label">categoria</label>
         <div class="col-sm-2">
-        <select class="form-control">
-            <option>Alimentação</option>
-            <option>Transporte</option>
-            <option>Vestuário</option>
-            <option>Cuidados pessoais</option>
-            <option>Moradia</option>
-            <option>Lazer</option>
-            <option>Educação</option>
-            <option>Compras</option>
-            <option>Diversos</option>
+        <select class="form-control" name="categoria">
+            <option value=ALIMENTACAO>Alimentação</option>
+            <option value=TRANSPORTE>Transporte</option>
+            <option value=VESTUARIO>Vestuário</option>
+            <option value=CUIDADOS_PESSOAIS>Cuidados pessoais</option>
+            <option value=MORADIA>Moradia</option>
+            <option value=LAZER>Lazer</option>
+            <option value=EDUCACAO>Educação</option>
+            <option value=COMPRAS>Compras</option>
+            <option value=DIVERSOS>Diversos</option>
         </select>    
         </div>  
     </div>    
@@ -41,27 +41,27 @@
     <div class="form-group">
         <label for="data" class="col-sm-2 control-label">Data</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" id="data">
+            <input type="text" class="form-control" name="data">
         </div>  
     </div>    
 
     <div class="form-group">
         <label for="valor" class="col-sm-2 control-label">Valor</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" id="valor">
+            <input type="text" class="form-control" name="valor">
         </div>  
     </div>    
 
     <div class="form-group">
         <label for="observacoes" class="col-sm-2 control-label">Observações</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" id="observacoes">
+            <input type="text" class="form-control" name="observacoes">
         </div>  
     </div>    
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="button" class="btn-btn-primary">Salvar</button>
+            <button type="submit" class="btn-btn-primary">Salvar</button>
         </div>  
     </div>    
 

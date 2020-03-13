@@ -1,0 +1,5 @@
+br\com\impacta\ServletInitializer.class
+br\com\impacta\model\Despesa.class
+br\com\impacta\controllers\DespesasController.class
+br\com\impacta\GerenciadorDespesasApplication.class
+br\com\impacta\model\Categoria.class
