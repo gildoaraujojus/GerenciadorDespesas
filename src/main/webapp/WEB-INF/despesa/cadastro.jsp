@@ -1,5 +1,7 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Despesas</title>
@@ -8,11 +10,11 @@
 <body>
 <nav class="navbar navbar-inverse navbar-static-top" ></nav>
 <form class="form-horizontal" method="post" action="/despesas/salvar">
-	<div class="panel panel-default" >
-		<div class="panel-heading">
-            <h1 class="panel-title">Nova despesa</h1>
+	<c:if test="${!empty mensagem}">
+		<div class="alert alert-success" >
+			<span>${mensagem}</span>
 		</div>
-    </div>
+	</c:if>
     
     <div class="form-group">
         <label for="descricao" class="col-sm-2 control-label">Descrição</label>
@@ -25,15 +27,9 @@
         <label for="categoria" class="col-sm-2 control-label">categoria</label>
         <div class="col-sm-2">
         <select class="form-control" name="categoria">
-            <option value=ALIMENTACAO>Alimentação</option>
-            <option value=TRANSPORTE>Transporte</option>
-            <option value=VESTUARIO>Vestuário</option>
-            <option value=CUIDADOS_PESSOAIS>Cuidados pessoais</option>
-            <option value=MORADIA>Moradia</option>
-            <option value=LAZER>Lazer</option>
-            <option value=EDUCACAO>Educação</option>
-            <option value=COMPRAS>Compras</option>
-            <option value=DIVERSOS>Diversos</option>
+           <c:forEach items="${todasCategorias}" var="categoria">
+           		<option value="${categoria}">${categoria.nome}</option>	
+           </c:forEach>
         </select>    
         </div>  
     </div>    

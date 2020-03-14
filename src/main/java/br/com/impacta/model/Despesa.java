@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 @Entity
 public class Despesa {
 	
@@ -24,9 +27,11 @@ public class Despesa {
 	@Enumerated(EnumType.STRING)
 	private Categoria categoria;
 	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date data;
 	
+	@NumberFormat(pattern="#,##0.00")
 	private BigDecimal valor;
 	
 	private String observacoes;

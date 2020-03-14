@@ -3,13 +3,14 @@ package br.com.impacta.model;
 public enum Categoria {
 	ALIMENTACAO("Alimentação"),
 	TRANSPORTE("Transporte"),
-	VESTUÁRIO("Vestuário"),
+	VESTUARIO("Vestuário"),
 	CUIDADOS_PESSOAIS("Cuidados pessoais"),
 	MORADIA("Moradia"),
 	LAZER("Lazer"),
-	EDUCAÇÃO("Educação"),
+	EDUCACAO("Educação"),
 	COMPRAS("Compras"),
-	DIVERSOS("Diversos");
+	DIVERSOS("Diversos"),
+	SAUDE("Saúde");
 	
 	private String nome;
 
