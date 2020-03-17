@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.impacta.model.Categoria;
-import br.com.impacta.model.Despesa;
-import br.com.impacta.model.repository.DespesaRepository;
+import br.com.impacta.models.Categoria;
+import br.com.impacta.models.Despesa;
+import br.com.impacta.services.DespesaService;
 
 @Controller
 @RequestMapping("/despesas")
 public class DespesasController {
 	
+	private static final String VIEW = "/despesa/cadastro"; 
+	
 	@Autowired
-	DespesaRepository despRepository;
+	DespesaService despService;
 
 	@RequestMapping("/nova")
-	public ModelAndView nova(){
-		ModelAndView mv = new ModelAndView("/despesa/cadastro");
+	public ModelAndView nova(ModelAndView mv){
+		mv.setViewName(VIEW);
 		return mv;
 	}
 
@@ -33,16 +35,16 @@ public class DespesasController {
 		return "/despesa/cadastro";
 	}
 */	
-	@ModelAttribute("todasCategorias")
-	public List<Categoria> todasCategorias(){
+	@ModelAttribute("categorias")
+	public List<Categoria> getCategorias(){
 		return Arrays.asList(Categoria.values());
 	}
 	
-	@RequestMapping(value = "/salvar", method=RequestMethod.POST)
-	public ModelAndView salvar(Despesa despesa){
-		despRepository.save(despesa);
-		ModelAndView mv = new ModelAndView("/despesa/cadastro");
-		mv.addObject("mensagem", "Despesa salve com sucesso!");
+	@RequestMapping(method=RequestMethod.POST)
+	public ModelAndView salvar(Despesa despesa, ModelAndView mv){
+		despService.salvar(despesa);
+		mv.setViewName(VIEW);
+		mv.addObject("mensagem", "Despesa salva com sucesso!");
 		return mv;
 	}
 }

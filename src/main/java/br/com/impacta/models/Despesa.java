@@ -1,4 +1,4 @@
-package br.com.impacta.model;
+package br.com.impacta.models;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -27,7 +27,7 @@ public class Despesa {
 	@Enumerated(EnumType.STRING)
 	private Categoria categoria;
 	
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date data;
 	
